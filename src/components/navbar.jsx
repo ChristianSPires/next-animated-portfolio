@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import NavLink from "./navLink";
-import { motion, stagger } from "framer-motion";
+import { motion } from "framer-motion";
 
 const links = [
   { url: "/", title: "Home" },
@@ -141,7 +141,11 @@ const Navbar = () => {
             className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
           >
             {links.map((link) => (
-              <motion.div variants={listItemVariants} className="">
+              <motion.div
+                variants={listItemVariants}
+                className=""
+                key={link.title}
+              >
                 <Link href={link.url} key={link.title}>
                   {link.title}
                 </Link>
